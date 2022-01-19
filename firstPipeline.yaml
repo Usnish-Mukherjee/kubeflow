@@ -14,7 +14,7 @@ spec:
       args: []
       command: [python, decision_tree.py, --data, /tmp/inputs/Data/data, --accuracy,
         /tmp/outputs/Accuracy/data]
-      image: fernandolpz/only-tests:decision_tree_v3
+      image: usnish/only-tests:decision_tree_v3
     inputs:
       artifacts:
       - {name: download-data-function-Data, path: /tmp/inputs/Data/data}
@@ -28,7 +28,7 @@ spec:
       annotations: {pipelines.kubeflow.org/component_spec: '{"description": "Trains
           a  decision tree classifier", "implementation": {"container": {"command":
           ["python", "decision_tree.py", "--data", {"inputPath": "Data"}, "--accuracy",
-          {"outputPath": "Accuracy"}], "image": "fernandolpz/only-tests:decision_tree_v3"}},
+          {"outputPath": "Accuracy"}], "image": "usnish/only-tests:decision_tree_v3"}},
           "inputs": [{"description": "Path where data is stored.", "name": "Data",
           "type": "LocalPath"}], "name": "Decision Tree classifier", "outputs": [{"description":
           "Accuracy metric", "name": "Accuracy", "type": "Float"}]}', pipelines.kubeflow.org/component_ref: '{"digest":
@@ -38,7 +38,7 @@ spec:
     container:
       args: []
       command: [python, download_data.py, --data, /tmp/outputs/Data/data]
-      image: fernandolpz/only-tests:download_data_v3
+      image: usnish/only-tests:download_data_v3
     outputs:
       artifacts:
       - {name: download-data-function-Data, path: /tmp/outputs/Data/data}
@@ -46,7 +46,7 @@ spec:
       annotations: {pipelines.kubeflow.org/component_spec: '{"description": "Download
           toy data from sklearn datasets", "implementation": {"container": {"command":
           ["python", "download_data.py", "--data", {"outputPath": "Data"}], "image":
-          "fernandolpz/only-tests:download_data_v3"}}, "name": "Download Data Function",
+          "usnish/only-tests:download_data_v3"}}, "name": "Download Data Function",
           "outputs": [{"description": "Path where data will be stored.", "name": "Data",
           "type": "LocalPath"}]}', pipelines.kubeflow.org/component_ref: '{"digest":
           "8db794668b4fd3b82638d89a42251f4038ab56623ee9f34721c356c5479155d2", "url":
@@ -79,7 +79,7 @@ spec:
       args: []
       command: [python, logistic_regression.py, --data, /tmp/inputs/Data/data, --accuracy,
         /tmp/outputs/Accuracy/data]
-      image: fernandolpz/only-tests:logistic_regression_v2
+      image: usnish/only-tests:logistic_regression_v2
     inputs:
       artifacts:
       - {name: download-data-function-Data, path: /tmp/inputs/Data/data}
@@ -93,7 +93,7 @@ spec:
       annotations: {pipelines.kubeflow.org/component_spec: '{"description": "Trains
           a Logistic Regression Classifier", "implementation": {"container": {"command":
           ["python", "logistic_regression.py", "--data", {"inputPath": "Data"}, "--accuracy",
-          {"outputPath": "Accuracy"}], "image": "fernandolpz/only-tests:logistic_regression_v2"}},
+          {"outputPath": "Accuracy"}], "image": "usnish/only-tests:logistic_regression_v2"}},
           "inputs": [{"description": "Path where data is stored.", "name": "Data",
           "type": "LocalPath"}], "name": "Logistic Regression Classifier", "outputs":
           [{"description": "Accuracy metric", "name": "Accuracy", "type": "Float"}]}',
